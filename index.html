@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costmatic Shop | Beauty & Makeup</title>
+<meta name="description" content="Shop your favorite makeup and beauty essentials at Costmatic Shop.">
+<style>
+:root {
+  --pink: #e879a5;
+  --dark: #8e345b;
+  --light: #fff0f5;
+  --gold: #c99a55;
+  --white: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  background: #fff9fb;
+  color: #49313d;
+}
+header {
+  background: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 15px #e7b5c633;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  color: var(--dark);
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--pink); }
+nav { display: flex; gap: 18px; align-items: center; }
+nav a {
+  text-decoration: none;
+  color: #75445a;
+  font-weight: bold;
+  font-size: 14px;
+}
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  padding: 11px 19px;
+  font-weight: bold;
+}
+.lang { background: var(--light); color: var(--dark); }
+.cart-btn { background: var(--pink); color: white; }
+
+.hero {
+  padding: 65px 7%;
+  background: linear-gradient(110deg,#ffe6ef,#fff7fa,#f8e2eb);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+.hero h1 {
+  color: var(--dark);
+  font-size: clamp(35px,5vw,58px);
+  margin: 15px 0;
+}
+.hero p { line-height: 1.8; color: #795b69; }
+.hero img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.tag {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+.shop-btn {
+  margin-top: 23px;
+  background: var(--dark);
+  color: white;
+  padding: 15px 28px;
+}
+.section { padding: 55px 6%; }
+.section h2 {
+  color: var(--dark);
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.subtitle {
+  text-align: center;
+  color: #a17b8c;
+  margin-bottom: 30px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+}
+.card {
+  background: white;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #b77a9220;
+  transition: .3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: var(--light);
+}
+.card-info { padding: 17px; }
+.card h3 { color: var(--dark); margin-bottom: 8px; }
+.price { color: var(--pink); font-size: 19px; font-weight: bold; }
+.add-btn {
+  background: var(--pink);
+  color: white;
+  width: 100%;
+  margin-top: 13px;
+}
+.cart-section {
+  background: #fff0f5;
+  padding: 40px 6%;
+}
+.cart-section h2 { color: var(--dark); }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #edcada;
+  gap: 10px;
+}
+.cart-item button {
+  padding: 5px 10px;
+  background: white;
+  color: var(--dark);
+}
+.total {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--dark);
+  margin: 20px 0;
+}
+.checkout {
+  max-width: 600px;
+  margin: 25px auto;
+  display: grid;
+  gap: 12px;
+}
+.checkout input, .checkout textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #edc6d6;
+  border-radius: 10px;
+  font: inherit;
+}
+.whatsapp {
+  background: #20b65b;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+}
+footer {
+  text-align: center;
+  background: #71354f;
+  color: white;
+  padding: 35px 15px;
+  line-height: 2;
+}
+footer a { color: #ffd6e5; }
+@media(max-width:900px) {
+  .products { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:600px) {
+  header { justify-content: center; }
+  nav { justify-content: center; flex-wrap: wrap; }
+  .hero { grid-template-columns: 1fr; padding: 40px 6%; }
+  .hero img { height: 250px; }
+  .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .card img { height: 145px; }
+  .card-info { padding: 11px; }
+  .card h3 { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">COSTMATIC<span> SHOP</span> 💗</div>
+  <nav>
+    <a href="#home" data-en="Home" data-np="गृहपृष्ठ">Home</a>
+    <a href="#products" data-en="Products" data-np="सामान">Products</a>
+    <a href="#cart" data-en="Cart" data-np="कार्ट">Cart</a>
+    <button class="lang" onclick="toggleLanguage()" id="language">🇳🇵 नेपाली</button>
+    <button class="cart-btn" onclick="location.href='#cart'">🛒 <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <div class="tag">BEAUTY • STYLE • CONFIDENCE</div>
+    <h1 id="heroTitle">Discover Your Beauty</h1>
+    <p id="heroText">Explore our beautiful collection of makeup and beauty essentials. Look gorgeous, feel confident and shine every day.</p>
+    <button class="shop-btn" onclick="location.href='#products'" id="shopButton">SHOP NOW ✨</button>
+  </div>
+  <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900" alt="Makeup collection">
+</section>
+
+<section class="section" id="products">
+  <h2 id="productTitle">Our Beauty Collection</h2>
+  <p class="subtitle" id="productSubtitle">Your favorite beauty essentials in one place 💕</p>
+  <div class="products" id="productList"></div>
+</section>
+
+<section class="cart-section" id="cart">
+  <h2 id="cartTitle">🛒 Your Shopping Cart</h2>
+  <div id="cartItems"></div>
+  <div class="total" id="total">Total: Rs. 0</div>
+
+  <div class="checkout">
+    <h2 id="checkoutTitle">Delivery Details</h2>
+    <input id="customerName" placeholder="Your Full Name" required>
+    <input id="customerPhone" placeholder="Your Phone Number" type="tel" required>
+    <textarea id="customerAddress" placeholder="Your Full Delivery Address" rows="3" required></textarea>
+    <button class="whatsapp" onclick="orderWhatsApp()" id="orderButton">
+      💬 ORDER THROUGH WHATSAPP
+    </button>
+  </div>
+</section>
+
+<footer>
+  <h2>COSTMATIC SHOP 💗</h2>
+  <p id="footerText">Your beauty, our passion.</p>
+  <p>WhatsApp: +977 9810536181</p>
+  <p>© 2026 Costmatic Shop. All Rights Reserved.</p>
+</footer>
+
+<script>
+const products = [
+ {id:1,en:"Matte Lipstick",np:"म्याट लिपस्टिक",price:450,img:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500"},
+ {id:2,en:"Liquid Foundation",np:"लिक्विड फाउन्डेसन",price:850,img:"https://images.unsplash.com/photo-1631214540242-2b9a9a1b4a3d?w=500"},
+ {id:3,en:"Compact Powder",np:"कम्प्याक्ट पाउडर",price:550,img:"https://images.unsplash.com/photo-1599733594230-6b823276abcc?w=500"},
+ {id:4,en:"Eyeshadow Palette",np:"आइस्याडो प्यालेट",price:950,img:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500"},
+ {id:5,en:"Mascara",np:"मस्कारा",price:400,img:"https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=500"},
+ {id:6,en:"Eyeliner",np:"आइलाइनर",price:300,img:"https://images.unsplash.com/photo-1512207846876-bb54ef5056fe?w=500"},
+ {id:7,en:"Blush",np:"ब्लस",price:500,img:"https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=500"},
+ {id:8,en:"Concealer",np:"कन्सिलर",price:450,img:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500"},
+ {id:9,en:"Makeup Primer",np:"मेकअप प्राइमर",price:650,img:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500"},
+ {id:10,en:"Setting Spray",np:"सेटिङ स्प्रे",price:700,img:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"}
+];
+
+let cart = [];
+let language = "en";
+
+function money(n) {
+ return "Rs. " + n.toLocaleString("en-IN");
+}
+
+function renderProducts() {
+ const list = document.getElementById("productList");
+ list.innerHTML = products.map(p => `
+ <div class="card">
+  <img src="${p.img}" alt="${p.en}" loading="lazy"
+       onerror="this.src='https://placehold.co/500x400/ffe6ef/8e345b?text=Costmatic+Beauty'">
+  <div class="card-info">
+   <h3>${language==="en"?p.en:p.np}</h3>
+   <div class="price">${money(p.price)}</div>
+   <button class="add-btn" onclick="addToCart(${p.id})">
+    ${language==="en"?"ADD TO CART +":"कार्टमा थप्नुहोस् +"}
+   </button>
+  </div>
+ </div>`).join("");
+}
+
+function addToCart(id) {
+ const item = cart.find(x=>x.id===id);
+ if(item) item.qty++;
+ else cart.push({id,qty:1});
+ renderCart();
+}
+
+function changeQty(id,change) {
+ const item = cart.find(x=>x.id===id);
+ if(!item) return;
+ item.qty += change;
+ if(item.qty<=0) cart = cart.filter(x=>x.id!==id);
+ renderCart();
+}
+
+function renderCart() {
+ const container = document.getElementById("cartItems");
+ let total = 0;
+ let count = 0;
+ container.innerHTML = cart.length ? cart.map(item=>{
+  const p = products.find(x=>x.id===item.id);
+  total += p.price*item.qty;
+  count += item.qty;
+  return `<div class="cart-item">
+   <div><b>${language==="en"?p.en:p.np}</b><br>${money(p.price)} × ${item.qty}</div>
+   <div>
+    <button onclick="changeQty(${p.id},-1)">−</button>
+    ${item.qty}
+    <button onclick="changeQty(${p.id},1)">+</button>
+   </div>
+  </div>`;
+ }).join("") : `<p>${language==="en"?"Your cart is empty.":"तपाईंको कार्ट खाली छ।"}</p>`;
+
+ document.getElementById("total").innerText =
+ (language==="en"?"Total: ":"जम्मा: ")+money(total);
+ document.getElementById("cartCount").innerText=count;
+}
+
+function toggleLanguage() {
+ language = language==="en"?"np":"en";
+ document.documentElement.lang=language==="en"?"en":"ne";
+ document.getElementById("language").innerText =
+ language==="en"?"🇳🇵 नेपाली":"🇬🇧 English";
+
+ document.querySelectorAll("[data-en]").forEach(el=>{
+  el.innerText=el.dataset[language];
+ });
+
+ const translations = {
+  en:{
+   hero:"Discover Your Beauty",
+   desc:"Explore our beautiful collection of makeup and beauty essentials. Look gorgeous, feel confident and shine every day.",
+   shop:"SHOP NOW ✨",products:"Our Beauty Collection",
+   subtitle:"Your favorite beauty essentials in one place 💕",
+   cart:"🛒 Your Shopping Cart",checkout:"Delivery Details",
+   name:"Your Full Name",phone:"Your Phone Number",
+   address:"Your Full Delivery Address",
+   order:"💬 ORDER THROUGH WHATSAPP",
+   footer:"Your beauty, our passion."
+  },
+  np:{
+   hero:"आफ्नो सुन्दरता निखार्नुहोस्",
+   desc:"हाम्रो सुन्दर मेकअप र सौन्दर्य सामग्रीको संग्रह हेर्नुहोस्। सुन्दर देखिनुहोस् र आत्मविश्वासका साथ चम्किनुहोस्।",
+   shop:"अहिले किन्नुहोस् ✨",products:"हाम्रो सौन्दर्य संग्रह",
+   subtitle:"तपाईंका मनपर्ने सौन्दर्य सामग्री एकै ठाउँमा 💕",
+   cart:"🛒 तपाईंको किनमेल कार्ट",checkout:"डेलिभरी विवरण",
+   name:"तपाईंको पूरा नाम",phone:"फोन नम्बर",
+   address:"पूरा डेलिभरी ठेगाना",
+   order:"💬 WHATSAPP बाट अर्डर गर्नुहोस्",
+   footer:"तपाईंको सुन्दरता, हाम्रो खुसी।"
+  }
+ };
+ const t=translations[language];
+ document.getElementById("heroTitle").innerText=t.hero;
+ document.getElementById("heroText").innerText=t.desc;
+ document.getElementById("shopButton").innerText=t.shop;
+ document.getElementById("productTitle").innerText=t.products;
+ document.getElementById("productSubtitle").innerText=t.subtitle;
+ document.getElementById("cartTitle").innerText=t.cart;
+ document.getElementById("checkoutTitle").innerText=t.checkout;
+ document.getElementById("customerName").placeholder=t.name;
+ document.getElementById("customerPhone").placeholder=t.phone;
+ document.getElementById("customerAddress").placeholder=t.address;
+ document.getElementById("orderButton").innerText=t.order;
+ document.getElementById("footerText").innerText=t.footer;
+
+ renderProducts();
+ renderCart();
+}
+
+function orderWhatsApp() {
+ if(cart.length===0) {
+  alert(language==="en"?"Please add products to your cart first.":"कृपया पहिले सामान कार्टमा थप्नुहोस्।");
+  return;
+ }
+
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ const address=document.getElementById("customerAddress").value.trim();
+
+ if(!name||!phone||!address) {
+  alert(language==="en"?"Please complete all delivery details.":"कृपया सबै विवरण भर्नुहोस्।");
+  return;
+ }
+
+ if(!/^[0-9+\-\s()]{7,20}$/.test(phone)) {
+  alert(language==="en"?"Please enter a valid phone number.":"कृपया सही फोन नम्बर राख्नुहोस्।");
+  return;
+ }
+
+ let total=0;
+ let message="💗 *NEW COSTMATIC SHOP ORDER*\n\n";
+ message+="👤 Name: "+name+"\n";
+ message+="📞 Phone: "+phone+"\n";
+ message+="📍 Address: "+address+"\n\n";
+ message+="🛍️ *ORDER DETAILS*\n";
+
+ cart.forEach(item=>{
+  const p=products.find(x=>x.id===item.id);
+  total+=p.price*item.qty;
+  message+=`${p.en} x ${item.qty} = ${money(p.price*item.qty)}\n`;
+ });
+
+ message+="\n💰 *TOTAL: "+money(total)+"*";
+ message+="\n\nPlease confirm my order. Thank you! 💕";
+
+ const url="https://wa.me/9779810536181?text="+encodeURIComponent(message);
+ window.open(url,"_blank");
+}
+
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
